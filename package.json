@@ -1,0 +1,24 @@
+{
+  "name": "diplomka-share",
+  "version": "1.0.0",
+  "description": "Sdílený modul mezi backendem a frontendem výsledné aplikace. Slouží pro sjednocení komunikačního rozhraní.",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stechy1/diplomka-share"
+  },
+  "keywords": [],
+  "author": "Petr Štechmüller",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
