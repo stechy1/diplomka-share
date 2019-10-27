@@ -1,18 +1,22 @@
 export interface ResponseObject<T> {
-    records: T;
+    data: T;
 }
 
 export interface Experiment {
-    id: string;
+    id?: number;
     name: string;
     description: string;
-    type: string;
+    type: ExperimentType;
     created: number;
     output: {
         led?: boolean;
         image?: boolean;
         sound?: boolean;
     }
+}
+
+export enum ExperimentType {
+    NONE, ERP, CVEP, TVEP, FVEP, REA
 }
 
 export const Greeter = (name: string) => `Hello ${name}`;
