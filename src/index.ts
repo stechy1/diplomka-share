@@ -42,6 +42,8 @@ export interface ExperimentERP extends Experiment {
     edge: Edge;
     // Náhodnost experimentu
     random: Random;
+    // Přiřazené výstupy
+    outputs: ErpOutput[];
 }
 
 /**
@@ -57,6 +59,29 @@ export enum Edge {
 export enum Random {
     OFF, SHORT, LONG, SHORT_LONG
 }
+
+export interface ErpOutput {
+    // Unikátní ID přes všechny výstupy
+    id: number;
+    // ID experimentu, ke kterému je výstup přiřazen
+    experimentId: number;
+    // Pořadí výstupu (1 - 8)
+    orderId: number;
+    pulseUp: number;
+    pulseDown: number;
+    distribution: number;
+    brightness: number;
+    dependencies: [OutputDependency[], any]
+}
+
+export interface OutputDependency {
+    id: number;
+    experimentId: number;
+    sourceOutput: number;
+    destOutput: number;
+    count: number;
+}
+
 export function experimentTypeFromRaw(raw: string): ExperimentType {
     switch (raw.toUpperCase()) {
         case ExperimentType[ExperimentType.ERP]:
@@ -85,5 +110,3 @@ export function createEmptyExperiment(): Experiment {
         output: {}
     };
 }
-
-export const Greeter = (name: string) => `Hello ${name}`;
