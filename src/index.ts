@@ -8,7 +8,7 @@ export enum ResponseMessageType {
 }
 
 export interface ResponseObject<T> {
-    data: T;
+    data?: T;
     message?: ResponseMessage;
 }
 
