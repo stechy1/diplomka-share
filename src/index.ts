@@ -89,7 +89,7 @@ export interface ExperimentCVEP extends Experiment {
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
     wait: number;
-    // Pattern, podle kterého bude výstupy blikat
+    // Pattern, podle kterého budou výstupy blikat
     pattern: number;
     // Bitový posun jednotlivých výstupů od sebe o proti hlavnímu patternu
     bitShift: number;
