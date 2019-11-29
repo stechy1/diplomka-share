@@ -112,6 +112,30 @@ export interface ExperimentFVEP extends Experiment {
     brightness: number;
 }
 
+export interface ExperimentTVEP extends Experiment {
+    // Počet výstupů
+    outputCount: number;
+    // Pole jednotlivých výstupů
+    outputs: TvepOutput[];
+}
+
+export interface TvepOutput {
+    // Unikátní ID přes všechny výstupy
+    id: number;
+    // ID experimentu, ke kterému je výstup přiřazen
+    experimentId: number;
+    // Délka patternu
+    patternLength: number;
+    // Pattern, podle kterého bude výstup blikat
+    pattern: number;
+    // Doba v [ms], po kterou je výstup aktivní
+    out: number;
+    // Doba v [ms], po kterou je výstup neaktivní
+    wait: number;
+    // Svítivost všech výstupů
+    brightness: number;
+}
+
 export function experimentTypeFromRaw(raw: string): ExperimentType {
     switch (raw.toUpperCase()) {
         case ExperimentType[ExperimentType.ERP]:
