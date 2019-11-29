@@ -34,9 +34,9 @@ export interface ExperimentERP extends Experiment {
     outputCount: number;
     // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
     maxDistributionValue: number;
-    // Parametr out
+    // Doba v [ms], po kterou je výstup aktivní
     out: number;
-    // Parametr wait
+    // Doba v [ms], po kterou je výstup neaktivní
     wait: number;
     // Hrana, na kterou bude experiment reagovat
     edge: Edge;
@@ -80,6 +80,21 @@ export interface OutputDependency {
     sourceOutput: number;
     destOutput: number;
     count: number;
+}
+
+export interface ExperimentCVEP extends Experiment {
+    // Počet výstupů
+    outputCount: number;
+    // Doba v [ms], po kterou je výstup aktivní
+    out: number;
+    // Doba v [ms], po kterou je výstup neaktivní
+    wait: number;
+    // Pattern, podle kterého bude výstupy blikat
+    pattern: number;
+    // Bitový posun jednotlivých výstupů od sebe o proti hlavnímu patternu
+    bitShift: number;
+    // Svítivost všech výstupů
+    brightness: number;
 }
 
 export function experimentTypeFromRaw(raw: string): ExperimentType {
