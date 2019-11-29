@@ -97,6 +97,21 @@ export interface ExperimentCVEP extends Experiment {
     brightness: number;
 }
 
+export interface ExperimentFVEP extends Experiment {
+    // Počet výstupů
+    outputCount: number;
+    // Doba, po kterou bude výstup svítit
+    timeOn: number;
+    // Doba, po kterou bude výstup zhasnutý
+    timeOff: number;
+    // Frekvence opakování jednoho kola
+    frequency: number;
+    // Poměr doby svícení vzhledem k zadané periodě
+    dutyCycle: number;
+    // Svítivost všech výstupů
+    brightness: number;
+}
+
 export function experimentTypeFromRaw(raw: string): ExperimentType {
     switch (raw.toUpperCase()) {
         case ExperimentType[ExperimentType.ERP]:
