@@ -124,6 +124,8 @@ export interface TvepOutput {
     id: number;
     // ID experimentu, ke kterému je výstup přiřazen
     experimentId: number;
+    // Pořadí výstupu (1 - 8)
+    orderId: number;
     // Délka patternu
     patternLength: number;
     // Pattern, podle kterého bude výstup blikat
