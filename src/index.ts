@@ -14,6 +14,7 @@ export {
     Edge, Random,
     ErpOutput, OutputDependency,
     TvepOutput,
+    FvepOutput,
     createEmptyExperiment, experimentTypeFromRaw
 } from './experiments'
 

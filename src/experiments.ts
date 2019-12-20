@@ -86,6 +86,17 @@ export interface ExperimentCVEP extends Experiment {
 export interface ExperimentFVEP extends Experiment {
     // Počet výstupů
     outputCount: number;
+    // Pole jednotlivých výstupů
+    outputs: FvepOutput[];
+}
+
+export interface FvepOutput {
+    // Unikátní ID přes všechny výstupy
+    id: number;
+    // ID experimentu, ke kterému je výstup přiřazen
+    experimentId: number;
+    // Pořadí výstupu (1 - 8)
+    orderId: number;
     // Doba, po kterou bude výstup svítit
     timeOn: number;
     // Doba, po kterou bude výstup zhasnutý
