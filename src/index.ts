@@ -19,6 +19,10 @@ export {
 } from './experiments'
 
 export {
+    ExperimentResult
+} from './experiment-results'
+
+export {
     ClientCommand,
     ServerCommand
 } from './commands'
