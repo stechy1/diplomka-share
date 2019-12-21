@@ -8,7 +8,9 @@ export interface Experiment {
         led?: boolean;
         image?: boolean;
         sound?: boolean;
-    }
+    };
+    // Počet výstupů
+    outputCount: number;
 }
 
 export enum ExperimentType {
@@ -16,8 +18,6 @@ export enum ExperimentType {
 }
 
 export interface ExperimentERP extends Experiment {
-    // Počet výstupů
-    outputCount: number;
     // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
     maxDistributionValue: number;
     // Doba v [ms], po kterou je výstup aktivní
@@ -69,8 +69,6 @@ export interface OutputDependency {
 }
 
 export interface ExperimentCVEP extends Experiment {
-    // Počet výstupů
-    outputCount: number;
     // Doba v [ms], po kterou je výstup aktivní
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
@@ -84,8 +82,6 @@ export interface ExperimentCVEP extends Experiment {
 }
 
 export interface ExperimentFVEP extends Experiment {
-    // Počet výstupů
-    outputCount: number;
     // Pole jednotlivých výstupů
     outputs: FvepOutput[];
 }
@@ -110,8 +106,6 @@ export interface FvepOutput {
 }
 
 export interface ExperimentTVEP extends Experiment {
-    // Počet výstupů
-    outputCount: number;
     // Pole jednotlivých výstupů
     outputs: TvepOutput[];
 }
@@ -160,6 +154,7 @@ export function createEmptyExperiment(): Experiment {
         description: '',
         created: new Date().getTime(),
         type: ExperimentType.NONE,
-        output: {}
+        output: {},
+        outputCount: 1
     };
 }

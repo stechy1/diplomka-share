@@ -19,7 +19,8 @@ export {
 } from './experiments'
 
 export {
-    ExperimentResult
+    ExperimentResult,
+    createEmptyExperimentResult
 } from './experiment-results'
 
 export {
