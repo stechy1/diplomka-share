@@ -9,21 +9,24 @@ export interface ExperimentResult {
 	experimentID: number;
 	// Typ experimentu
 	type: ExperimentType;
+	// Počet použitých výstupů
+	outputCount: number;
 	// Název výsledku experimentu
 	name: null|string;
 	// Čas spuštění experimentu
-	date: Date;
+	date: number;
 	// Název souboru s průběhem experimentu
 	filename: string;
 
 }
 
 export function createEmptyExperimentResult(experiment: Experiment): ExperimentResult {
-	const date = new Date();
+	const date = Date.now();
 	return {
 		experimentID: experiment.id ? experiment.id : -1,
 		type: experiment.type,
-		filename: `${ExperimentType[experiment.type].toLowerCase()}-${date.getTime()}.json`,
+		outputCount: experiment.outputCount,
+		filename: `${ExperimentType[experiment.type].toLowerCase()}-${date}.json`,
 		date: date,
 		name: null
 	}
