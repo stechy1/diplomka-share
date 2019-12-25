@@ -27,3 +27,8 @@ export {
     CommandToStimulator,
     CommandFromStimulator
 } from './commands'
+
+export {
+    SERVER_HTTP_PORT,
+    SERVER_SOCKET_PORT
+} from './config'
