@@ -24,5 +24,6 @@ export {
 } from './experiment-results'
 
 export {
-
+    CommandToStimulator,
+    CommandFromStimulator
 } from './commands'
