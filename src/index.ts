@@ -15,7 +15,8 @@ export {
     ErpOutput, OutputDependency,
     TvepOutput,
     FvepOutput,
-    createEmptyExperiment, experimentTypeFromRaw
+    createEmptyExperiment, experimentTypeFromRaw,
+    outputTypeFromRaw, outputTypeToRaw
 } from './experiments'
 
 export {

@@ -17,6 +17,12 @@ export enum ExperimentType {
     NONE, ERP, CVEP, FVEP, TVEP, REA
 }
 
+export interface OutputType {
+    led?: boolean;
+    image?: boolean;
+    sound?: boolean;
+}
+
 export interface ExperimentERP extends Experiment {
     // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
     maxDistributionValue: number;
@@ -53,22 +59,36 @@ export interface ErpOutput {
     experimentId: number;
     // Pořadí výstupu (1 - 8)
     orderId: number;
+    // Typ výstupu
+    outputType: OutputType;
+    // Doba aktivního výstupu
     pulseUp: number;
+    // Doba neaktivního výstupu
     pulseDown: number;
+    // Distribuce výstupu (pravděpodobnost, že se výstup ukáže v sekvenci)
     distribution: number;
+    // Svítivost výstupu v případě LED
     brightness: number;
+    // Závislosti výstupu na ostatních výstupech
     dependencies: [OutputDependency[], any]
 }
 
 export interface OutputDependency {
+    // Unikádní ID přeš všechny závislosti výstupů
     id: number;
+    // ID experimentu, ke kterému je závislost spřažena
     experimentId: number;
+    // ID výstupu, ke kterému je závislost spřažena
     sourceOutput: number;
+    // ID závislosti výstupu, na kterém tato závislost závisí
     destOutput: number;
+    // Kolikrát se musí vyskytnout 'destOutput', než se bude moct vyskytnout 'sourceOutput'
     count: number;
 }
 
 export interface ExperimentCVEP extends Experiment {
+    // Typ výstupu
+    outputType: OutputType;
     // Doba v [ms], po kterou je výstup aktivní
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
@@ -93,6 +113,8 @@ export interface FvepOutput {
     experimentId: number;
     // Pořadí výstupu (1 - 8)
     orderId: number;
+    // Typ výstupu
+    outputType: OutputType;
     // Doba, po kterou bude výstup svítit
     timeOn: number;
     // Doba, po kterou bude výstup zhasnutý
@@ -117,6 +139,8 @@ export interface TvepOutput {
     experimentId: number;
     // Pořadí výstupu (1 - 8)
     orderId: number;
+    // Typ výstupu
+    outputType: OutputType;
     // Délka patternu
     patternLength: number;
     // Pattern, podle kterého bude výstup blikat
@@ -146,6 +170,42 @@ export function experimentTypeFromRaw(raw: string): ExperimentType {
 
     }
 
+}
+
+export function outputTypeFromRaw(outputTypeRaw: number): OutputType {
+    const outputType: OutputType = {};
+    // 0b0001
+    if (outputTypeRaw & 0x01) {
+        outputType.led = true;
+    }
+    // 0b0010
+    if (outputTypeRaw & 0x02) {
+        outputType.sound = true;
+    }
+    // 0b0100
+    if (outputTypeRaw & 0x04) {
+        outputType.image = true;
+    }
+
+    return outputType;
+}
+
+export function outputTypeToRaw(outputType: OutputType): number {
+    let outputTypeRaw = 0;
+    // 0b0001
+    if (outputType.led) {
+        outputTypeRaw |= 0x01;
+    }
+    // 0b0010
+    if (outputType.sound) {
+        outputTypeRaw |= 0x02;
+    }
+    // 0b0100
+    if (outputType.image) {
+        outputTypeRaw |= 0x04;
+    }
+
+    return outputTypeRaw;
 }
 
 export function createEmptyExperiment(): Experiment {
