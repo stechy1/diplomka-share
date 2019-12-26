@@ -14,7 +14,7 @@ export interface Experiment {
 }
 
 export enum ExperimentType {
-    NONE, ERP, CVEP, TVEP, FVEP, REA
+    NONE, ERP, CVEP, FVEP, TVEP, REA
 }
 
 export interface ExperimentERP extends Experiment {
