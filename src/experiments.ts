@@ -1,14 +1,16 @@
 export interface Experiment {
+    // Unikátní ID přes všechny experimenty
     id?: number;
+    // Název experimentu
     name: string;
+    // Popis experimentu
     description: string;
+    // Typ experimentu
     type: ExperimentType;
+    // Časová značka založení experimentu
     created: number;
-    output: {
-        led?: boolean;
-        image?: boolean;
-        sound?: boolean;
-    };
+    // Typy použitých výstupů
+    usedOutputs: OutputType;
     // Počet výstupů
     outputCount: number;
 }
@@ -20,7 +22,7 @@ export enum ExperimentType {
 export interface OutputType {
     led?: boolean;
     image?: boolean;
-    sound?: boolean;
+    audio?: boolean;
 }
 
 export interface ExperimentERP extends Experiment {
@@ -87,8 +89,6 @@ export interface OutputDependency {
 }
 
 export interface ExperimentCVEP extends Experiment {
-    // Typ výstupu
-    outputType: OutputType;
     // Doba v [ms], po kterou je výstup aktivní
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
@@ -173,14 +173,14 @@ export function experimentTypeFromRaw(raw: string): ExperimentType {
 }
 
 export function outputTypeFromRaw(outputTypeRaw: number): OutputType {
-    const outputType: OutputType = {};
+    const outputType: OutputType = {led: false, audio: false, image: false};
     // 0b0001
     if (outputTypeRaw & 0x01) {
         outputType.led = true;
     }
     // 0b0010
     if (outputTypeRaw & 0x02) {
-        outputType.sound = true;
+        outputType.audio = true;
     }
     // 0b0100
     if (outputTypeRaw & 0x04) {
@@ -197,7 +197,7 @@ export function outputTypeToRaw(outputType: OutputType): number {
         outputTypeRaw |= 0x01;
     }
     // 0b0010
-    if (outputType.sound !== undefined && outputType.sound) {
+    if (outputType.audio !== undefined && outputType.audio) {
         outputTypeRaw |= 0x02;
     }
     // 0b0100
@@ -214,7 +214,7 @@ export function createEmptyExperiment(): Experiment {
         description: '',
         created: new Date().getTime(),
         type: ExperimentType.NONE,
-        output: {},
+        usedOutputs: {},
         outputCount: 1
     };
 }
