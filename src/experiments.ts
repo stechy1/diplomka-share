@@ -193,15 +193,15 @@ export function outputTypeFromRaw(outputTypeRaw: number): OutputType {
 export function outputTypeToRaw(outputType: OutputType): number {
     let outputTypeRaw = 0;
     // 0b0001
-    if (outputType.led) {
+    if (outputType.led !== undefined && outputType.led) {
         outputTypeRaw |= 0x01;
     }
     // 0b0010
-    if (outputType.sound) {
+    if (outputType.sound !== undefined && outputType.sound) {
         outputTypeRaw |= 0x02;
     }
     // 0b0100
-    if (outputType.image) {
+    if (outputType.image !== undefined && outputType.image) {
         outputTypeRaw |= 0x04;
     }
 
