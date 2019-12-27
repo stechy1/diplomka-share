@@ -22,7 +22,9 @@ export enum ExperimentType {
 export interface OutputType {
     led?: boolean;
     image?: boolean;
+    imageFile?: string;
     audio?: boolean;
+    audioFile?: string;
 }
 
 export interface ExperimentERP extends Experiment {
