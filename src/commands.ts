@@ -33,6 +33,7 @@ export class CommandToStimulator {
 
 
 	public static readonly COMMAND_EXPERIMENT_SETUP = 0x10;
+	public static readonly COMMAND_OUTPUT_SETUP = 0x11;
 
 
 	// Backdoor do stimulatoru
