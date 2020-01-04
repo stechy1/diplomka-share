@@ -15,6 +15,7 @@
   "keywords": [],
   "author": "Petr Štechmüller",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "typescript": "^3.6.4"
   },
