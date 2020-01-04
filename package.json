@@ -1,5 +1,5 @@
 {
-  "name": "diplomka-share",
+  "name": "@stechy1/diplomka-share",
   "version": "1.0.0",
   "description": "Sdílený modul mezi backendem a frontendem výsledné aplikace. Slouží pro sjednocení komunikačního rozhraní.",
   "main": "lib/index.js",
@@ -15,7 +15,6 @@
   "keywords": [],
   "author": "Petr Štechmüller",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "typescript": "^3.6.4"
   },
