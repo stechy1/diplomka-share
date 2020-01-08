@@ -220,3 +220,52 @@ export function createEmptyExperiment(): Experiment {
         outputCount: 1
     };
 }
+
+export function createEmptyExperimentERP(): ExperimentERP {
+    const experiment: Experiment = createEmptyExperiment();
+    experiment.type = ExperimentType.ERP;
+
+    return {
+        ...experiment,
+        out: 1,
+        wait: 1,
+        edge: Edge.FALLING,
+        random: Random.OFF,
+        outputs: [],
+    }
+}
+
+export function createEmptyExperimentCVEP(): ExperimentCVEP {
+    const experiment: Experiment = createEmptyExperiment();
+    experiment.type = ExperimentType.CVEP;
+
+    return {
+        ...experiment,
+        usedOutputs: {led: true},
+        out: 1,
+        wait: 1,
+        pattern: 0,
+        bitShift: 0,
+        brightness: 0
+    }
+}
+
+export function createEmptyExperimentFVEP(): ExperimentFVEP {
+    const experiment: Experiment = createEmptyExperiment();
+    experiment.type = ExperimentType.FVEP;
+
+    return {
+        ...experiment,
+        outputs: []
+    }
+}
+
+export function createEmptyExperimentTVEP(): ExperimentTVEP {
+    const experiment: Experiment = createEmptyExperiment();
+    experiment.type = ExperimentType.TVEP;
+
+    return {
+        ...experiment,
+        outputs: []
+    }
+}
