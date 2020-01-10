@@ -13,6 +13,8 @@ export interface Experiment {
     usedOutputs: OutputType;
     // Počet výstupů
     outputCount: number;
+    // Tagy experimentu
+    tags: string[];
 }
 
 export enum ExperimentType {
@@ -216,8 +218,9 @@ export function createEmptyExperiment(): Experiment {
         description: '',
         created: new Date().getTime(),
         type: ExperimentType.NONE,
-        usedOutputs: {},
-        outputCount: 1
+        usedOutputs: {led: true},
+        outputCount: 1,
+        tags: []
     };
 }
 
