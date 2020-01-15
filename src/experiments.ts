@@ -42,6 +42,8 @@ export interface ExperimentERP extends Experiment {
     random: Random;
     // Přiřazené výstupy
     outputs: ErpOutput[];
+    // ID sequence, která se použije, nebo null v případě žádné definované sequence
+    sequenceId: number|null;
 }
 
 /**
@@ -235,6 +237,7 @@ export function createEmptyExperimentERP(): ExperimentERP {
         edge: Edge.FALLING,
         random: Random.OFF,
         outputs: [],
+        sequenceId: null
     }
 }
 

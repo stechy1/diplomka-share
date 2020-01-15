@@ -38,3 +38,8 @@ export {
 export {
     FileRecord
 } from './files'
+
+export {
+    Sequence,
+    createEmptySequence
+} from './sequence'
