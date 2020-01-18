@@ -31,7 +31,7 @@ export interface OutputType {
 
 export interface ExperimentERP extends Experiment {
     // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
-    // maxDistributionValue: number;
+    maxDistribution: number;
     // Doba v [ms], po kterou je výstup aktivní
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
@@ -232,6 +232,7 @@ export function createEmptyExperimentERP(): ExperimentERP {
 
     return {
         ...experiment,
+        maxDistribution: 100,
         out: 1,
         wait: 1,
         edge: Edge.FALLING,
