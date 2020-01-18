@@ -17,7 +17,11 @@ export {
     TvepOutput,
     FvepOutput,
     createEmptyExperiment, experimentTypeFromRaw,
-    outputTypeFromRaw, outputTypeToRaw
+    outputTypeFromRaw, outputTypeToRaw,
+    createEmptyExperimentERP,
+    createEmptyExperimentCVEP,
+    createEmptyExperimentFVEP,
+    createEmptyExperimentTVEP
 } from './experiments'
 
 export {
@@ -42,4 +46,4 @@ export {
 export {
     Sequence,
     createEmptySequence
-} from './sequence'
+} from './sequences'
