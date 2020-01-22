@@ -1,5 +1,4 @@
 export {
-    ResponseMessageType,
     ResponseMessage,
     ResponseObject
 } from './response'
@@ -47,3 +46,7 @@ export {
     Sequence,
     createEmptySequence
 } from './sequences'
+
+export {
+    MessageCodes
+} from './message-codes'

@@ -1,10 +1,6 @@
 export interface ResponseMessage {
-    text: string,
-    type: ResponseMessageType
-}
-
-export enum ResponseMessageType {
-    SUCCESS, INFO, WARNING, ERROR
+    code: number
+    params?: {},
 }
 
 export interface ResponseObject<T> {
