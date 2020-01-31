@@ -54,10 +54,10 @@ export class MessageCodes {
 
     // Chybové zprávy pro 'commands' začínají na 70000
     public static readonly CODE_COMMANDS_INVALID_URL = 70301;
-    public static readonly CODE_COMMANDS_EXPERIMENT_SETUP = 70302;
-    public static readonly CODE_COMMANDS_EXPERIMENT_INIT = 70303;
+    public static readonly CODE_COMMANDS_EXPERIMENT_UPLOAD = 70302;
+    public static readonly CODE_COMMANDS_EXPERIMENT_SETUP = 70303;
     public static readonly CODE_COMMANDS_EXPERIMENT_START = 70304;
     public static readonly CODE_COMMANDS_EXPERIMENT_STOP = 70305;
-    public static readonly CODE_COMMANDS_EXPERIMENT_CLEAR = 7030;
+    public static readonly CODE_COMMANDS_EXPERIMENT_CLEAR = 70306;
 
 }
