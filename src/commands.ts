@@ -77,3 +77,19 @@ export class CommandFromStimulator {
 	public static readonly COMMAND_MEMORY_ACCUMULATOR = COMMAND_MEMORY_ACCUMULATOR;
 
 }
+
+export class CommandClientToServer {
+	public static readonly COMMAND_EXPERIMENT_START = 'experiment-start';
+	public static readonly COMMAND_EXPERIMENT_STOP = 'experiment-stop';
+	public static readonly COMMAND_EXPERIMENT_UPLOAD = 'experiment-upload';
+	public static readonly COMMAND_EXPERIMENT_SETUP = 'experiment-setup';
+	public static readonly COMMAND_EXPERIMENT_CLEAR = 'experiment-clear';
+
+	public static readonly COMMAND_OUTPUT_SET = 'output-set';
+	public static readonly COMMAND_MEMORY = 'memory';
+	public static readonly COMMAND_SEQUENCE_PART = 'sequence-part';
+
+	public static readonly COMMAND_DISPLAY_CLEAR = 'display-clear';
+	public static readonly COMMAND_DISPLAY_TEXT = 'display-text';
+
+}

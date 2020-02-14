@@ -30,7 +30,8 @@ export {
 
 export {
     CommandToStimulator,
-    CommandFromStimulator
+    CommandFromStimulator,
+    CommandClientToServer
 } from './commands'
 
 export {
