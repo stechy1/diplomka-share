@@ -242,6 +242,20 @@ export function createEmptyExperimentERP(): ExperimentERP {
     }
 }
 
+export function createEmptyOutputERP(experiment: ExperimentERP, index: number): ErpOutput {
+    return {
+        id: 1,
+        experimentId: experiment.id as number,
+        orderId: index,
+        outputType: { led: true },
+        pulseUp: 1,
+        pulseDown: 1,
+        distribution: 50,
+        brightness: 100,
+        dependencies: [[], []]
+    };
+}
+
 export function createEmptyExperimentCVEP(): ExperimentCVEP {
     const experiment: Experiment = createEmptyExperiment();
     experiment.type = ExperimentType.CVEP;
@@ -267,6 +281,20 @@ export function createEmptyExperimentFVEP(): ExperimentFVEP {
     }
 }
 
+export function createEmptyOutputFVEP(experiment: ExperimentFVEP, index: number): FvepOutput {
+    return {
+        id: 1,
+        experimentId: experiment.id as number,
+        orderId: index,
+        outputType: { led: true },
+        timeOn: 1,
+        timeOff: 1,
+        frequency: 1,
+        dutyCycle: 1,
+        brightness: 50
+    }
+}
+
 export function createEmptyExperimentTVEP(): ExperimentTVEP {
     const experiment: Experiment = createEmptyExperiment();
     experiment.type = ExperimentType.TVEP;
@@ -274,5 +302,19 @@ export function createEmptyExperimentTVEP(): ExperimentTVEP {
     return {
         ...experiment,
         outputs: []
+    }
+}
+
+export function createEmptyOutputTVEP(experiment: ExperimentTVEP, index: number): TvepOutput {
+    return {
+        id: 1,
+        experimentId: experiment.id as number,
+        orderId: index,
+        outputType: { led: true },
+        out: 1,
+        wait: 1,
+        patternLength: 1,
+        pattern: 1,
+        brightness: 50
     }
 }

@@ -20,7 +20,10 @@ export {
     createEmptyExperimentERP,
     createEmptyExperimentCVEP,
     createEmptyExperimentFVEP,
-    createEmptyExperimentTVEP
+    createEmptyExperimentTVEP,
+    createEmptyOutputERP,
+    createEmptyOutputFVEP,
+    createEmptyOutputTVEP
 } from './experiments'
 
 export {
