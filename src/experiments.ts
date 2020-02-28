@@ -134,6 +134,8 @@ export interface FvepOutput {
 }
 
 export interface ExperimentTVEP extends Experiment {
+    // Příznak, zda-li mají výstupy sdílet délku patternu
+    sharePatternLength: boolean;
     // Pole jednotlivých výstupů
     outputs: TvepOutput[];
 }
@@ -301,6 +303,7 @@ export function createEmptyExperimentTVEP(): ExperimentTVEP {
 
     return {
         ...experiment,
+        sharePatternLength: true,
         outputs: []
     }
 }
