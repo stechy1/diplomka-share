@@ -161,6 +161,29 @@ export interface TvepOutput {
     brightness: number;
 }
 
+export interface ExperimentREA extends Experiment {
+    // Počet cyklů v experimentu
+    cycleCount: number;
+    // Minimální prodleva mezi jednotlivými výstupy
+    waitTimeMin: number;
+    // Maximální prodleva mezi jednotlivými výstupy
+    waitTimeMax: number;
+    // Doba, po kterou bude možné zareagovat na výstup
+    // (většinou bude o pár desítek milisekund kratší, než 'waitTimeMax')
+    missTime: number;
+    // Jak se má pokračovat v případě, že uživatel stiskne špatné tlačítko
+    onFail: ReaOnResponseFail;
+    // Svítivost výstupu
+    brightness: number;
+}
+
+export enum ReaOnResponseFail {
+    // Nový výstup se aktivuje okemžitě
+    CONTINUE,
+    // Počká se, než vyprší timeout a poté se pokračuje standardne
+    WAIT
+}
+
 export function experimentTypeFromRaw(raw: string): ExperimentType {
     switch (raw.toUpperCase()) {
         case ExperimentType[ExperimentType.ERP]:
@@ -264,12 +287,11 @@ export function createEmptyExperimentCVEP(): ExperimentCVEP {
 
     return {
         ...experiment,
-        usedOutputs: {led: true},
         out: 1,
         wait: 1,
         pattern: 0,
         bitShift: 0,
-        brightness: 0
+        brightness: 100
     }
 }
 
@@ -293,7 +315,7 @@ export function createEmptyOutputFVEP(experiment: ExperimentFVEP, index: number)
         timeOff: 1,
         frequency: 1,
         dutyCycle: 1,
-        brightness: 50
+        brightness: 100
     }
 }
 
@@ -319,5 +341,21 @@ export function createEmptyOutputTVEP(experiment: ExperimentTVEP, index: number)
         patternLength: 1,
         pattern: 1,
         brightness: 50
+    }
+}
+
+export function createEmptyExperimentREA(): ExperimentREA {
+    const experiment: Experiment = createEmptyExperiment();
+    experiment.type = ExperimentType.REA;
+
+    return {
+        ...experiment,
+        cycleCount: 1,
+        waitTimeMin: 1,
+        waitTimeMax: 1,
+
+        missTime: 1,
+        onFail: ReaOnResponseFail.CONTINUE,
+        brightness: 100,
     }
 }

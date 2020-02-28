@@ -11,10 +11,12 @@ export {
     ExperimentCVEP,
     ExperimentFVEP,
     ExperimentTVEP,
+    ExperimentREA,
     Edge, Random,
     ErpOutput, OutputDependency,
     TvepOutput,
     FvepOutput,
+    ReaOnResponseFail,
     createEmptyExperiment, experimentTypeFromRaw,
     outputTypeFromRaw, outputTypeToRaw,
     createEmptyExperimentERP,
@@ -23,7 +25,8 @@ export {
     createEmptyExperimentTVEP,
     createEmptyOutputERP,
     createEmptyOutputFVEP,
-    createEmptyOutputTVEP
+    createEmptyOutputTVEP,
+    createEmptyExperimentREA
 } from './experiments'
 
 export {
