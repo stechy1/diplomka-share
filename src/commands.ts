@@ -4,8 +4,9 @@ const COMMAND_EXPERIMENT_READY = 0x00;
 const COMMAND_EXPERIMENT_UPLOAD = 0x01;
 const COMMAND_EXPERIMENT_SETUP = 0x02;
 const COMMAND_EXPERIMENT_RUN = 0x03;
-const COMMAND_EXPERIMENT_STOP = 0x04;
-const COMMAND_EXPERIMENT_CLEAR = 0x05;
+const COMMAND_EXPERIMENT_PAUSE = 0x04;
+const COMMAND_EXPERIMENT_FINISH = 0x05;
+const COMMAND_EXPERIMENT_CLEAR = 0x06;
 
 
 const COMMAND_SEQUENCE_NEXT_PART = 0x20;
@@ -14,12 +15,6 @@ const COMMAND_MEMORY = 0xF1;
 const COMMAND_MEMORY_EXPERIMENT_CONFIG = 0x00;
 const COMMAND_MEMORY_COUNTERS = 0x01;
 const COMMAND_MEMORY_ACCUMULATOR = 0x02;
-
-//     READY,
-//     UPLOADED,
-//     INITIALIZED,
-//     RUNNING,
-//     FINISHED,
 
 export class CommandToStimulator {
 
@@ -38,7 +33,8 @@ export class CommandToStimulator {
 	public static readonly COMMAND_MANAGE_EXPERIMENT_UPLOAD = COMMAND_EXPERIMENT_UPLOAD;
 	public static readonly COMMAND_MANAGE_EXPERIMENT_SETUP = COMMAND_EXPERIMENT_SETUP;
 	public static readonly COMMAND_MANAGE_EXPERIMENT_RUN = COMMAND_EXPERIMENT_RUN;
-	public static readonly COMMAND_MANAGE_EXPERIMENT_STOP = COMMAND_EXPERIMENT_STOP;
+	public static readonly COMMAND_MANAGE_EXPERIMENT_PAUSE = COMMAND_EXPERIMENT_PAUSE;
+	public static readonly COMMAND_MANAGE_EXPERIMENT_FINISH = COMMAND_EXPERIMENT_FINISH;
 	public static readonly COMMAND_MANAGE_EXPERIMENT_CLEAR = COMMAND_EXPERIMENT_CLEAR;
 
 	public static readonly COMMAND_OUTPUT_SETUP = 0x11;
@@ -62,7 +58,8 @@ export class CommandFromStimulator {
 	public static readonly COMMAND_STIMULATOR_STATE_UPLOADED = COMMAND_EXPERIMENT_UPLOAD;
 	public static readonly COMMAND_STIMULATOR_STATE_INITIALIZED = COMMAND_EXPERIMENT_SETUP;
 	public static readonly COMMAND_STIMULATOR_STATE_RUNNING = COMMAND_EXPERIMENT_RUN;
-	public static readonly COMMAND_STIMULATOR_STATE_STOPPED = COMMAND_EXPERIMENT_STOP;
+	public static readonly COMMAND_STIMULATOR_STATE_PAUSED = COMMAND_EXPERIMENT_PAUSE;
+	public static readonly COMMAND_STIMULATOR_STATE_FINISHED = COMMAND_EXPERIMENT_FINISH;
 	public static readonly COMMAND_STIMULATOR_STATE_CLEARED = COMMAND_EXPERIMENT_CLEAR;
 
 	public static readonly COMMAND_OUTPUT_ACTIVATED = 0x10;
@@ -80,7 +77,8 @@ export class CommandFromStimulator {
 
 export class CommandClientToServer {
 	public static readonly COMMAND_EXPERIMENT_START = 'experiment-start';
-	public static readonly COMMAND_EXPERIMENT_STOP = 'experiment-stop';
+	public static readonly COMMAND_EXPERIMENT_PAUSE = 'experiment-pause';
+	public static readonly COMMAND_EXPERIMENT_FINISH = 'experiment-finish';
 	public static readonly COMMAND_EXPERIMENT_UPLOAD = 'experiment-upload';
 	public static readonly COMMAND_EXPERIMENT_SETUP = 'experiment-setup';
 	public static readonly COMMAND_EXPERIMENT_CLEAR = 'experiment-clear';

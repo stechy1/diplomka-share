@@ -55,13 +55,15 @@ export class MessageCodes {
     // Chybové zprávy pro 'commands' začínají na 70000
     public static readonly CODE_ERROR_COMMANDS_INVALID_URL = 70301;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_UPLOAD = 70302;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_UPLOAD_NOT_INITIALIZED = 70312;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_UPLOAD_NOT_CLEARED = 70312;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_SETUP = 70303;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_SETUP_NOT_UPLOADED = 70313;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_START = 70304;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_START_NOT_INITIALIZED = 70314;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_STOP = 70305;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_STOP_NOT_RUNNING = 70315;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_RUN = 70304;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_RUN_NOT_INITIALIZED = 70314;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_PAUSE = 70305;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_PAUSE_NOT_STARTED = 70315;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH = 70306;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH_NOT_RUNNING = 70316;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_CLEAR = 70306;
 
 }
