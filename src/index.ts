@@ -58,3 +58,11 @@ export {
 export {
     MessageCodes
 } from './message-codes'
+
+export {
+    SerialDataEvent,
+    IOEvent,
+    StimulatorStateEvent,
+    StimulatorMemoryEvent,
+    StimulatorSequencePartRequestEvent
+} from './serial-data-events'
