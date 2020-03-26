@@ -21,6 +21,9 @@ export class CommandToStimulator {
 	// Oddělovač příkazu
 	public static readonly COMMAND_DELIMITER = COMMAND_DELIMITER_SHARE;
 
+	// Příkaz pro získání aktuálního stavu stimulátoru
+	public static readonly COMMAND_STIMULATOR_STATE = 0x01;
+
 	// Příkaz pro nastavení displaye
 	public static readonly COMMAND_DISPLAY = 0x02;
 	public static readonly COMMAND_DISPLAY_ACTION_CLEAR = 0x00;
@@ -36,6 +39,7 @@ export class CommandToStimulator {
 	public static readonly COMMAND_MANAGE_EXPERIMENT_PAUSE = COMMAND_EXPERIMENT_PAUSE;
 	public static readonly COMMAND_MANAGE_EXPERIMENT_FINISH = COMMAND_EXPERIMENT_FINISH;
 	public static readonly COMMAND_MANAGE_EXPERIMENT_CLEAR = COMMAND_EXPERIMENT_CLEAR;
+
 
 	public static readonly COMMAND_OUTPUT_SETUP = 0x11;
 	public static readonly COMMAND_SEQUENCE_NEXT_PART = COMMAND_SEQUENCE_NEXT_PART;
@@ -76,7 +80,8 @@ export class CommandFromStimulator {
 }
 
 export class CommandClientToServer {
-	public static readonly COMMAND_EXPERIMENT_START = 'experiment-start';
+	public static readonly COMMAND_STIMULATOR_STATE = 'stimulator-state';
+	public static readonly COMMAND_EXPERIMENT_RUN = 'experiment-run';
 	public static readonly COMMAND_EXPERIMENT_PAUSE = 'experiment-pause';
 	public static readonly COMMAND_EXPERIMENT_FINISH = 'experiment-finish';
 	public static readonly COMMAND_EXPERIMENT_UPLOAD = 'experiment-upload';
@@ -90,4 +95,11 @@ export class CommandClientToServer {
 	public static readonly COMMAND_DISPLAY_CLEAR = 'display-clear';
 	public static readonly COMMAND_DISPLAY_TEXT = 'display-text';
 
+}
+
+export interface ServerCommandResponse {
+	valid: boolean;
+	message?: string;
+	code?: number;
+	params?: any;
 }

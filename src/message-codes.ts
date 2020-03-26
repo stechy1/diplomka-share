@@ -47,6 +47,7 @@ export class MessageCodes {
     public static readonly CODE_SUCCESS_LOW_LEVEL_FIRMWARE_UPDATED = 50002;
     public static readonly CODE_ERROR_LOW_LEVEL_PORT_NOT_OPPENED = 50301;
     public static readonly CODE_ERROR_LOW_LEVEL_FIRMWARE_NOT_UPDATED = 50302;
+    public static readonly CODE_ERROR_LOW_LEVEL_PORT_NOT_OPEN = 50303;
 
     // Chybové zprávy pro 'settings' začínají na 60000
     public static readonly CODE_SUCCESS_SETTINGS_UPDATED = 60001;
@@ -64,6 +65,7 @@ export class MessageCodes {
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_PAUSE_NOT_STARTED = 70315;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH = 70306;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH_NOT_RUNNING = 70316;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_CLEAR = 70306;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_CLEAR = 70307;
+    public static readonly CODE_ERROR_COMMANDS_STIMULATOR_STATE = 70308;
 
 }
