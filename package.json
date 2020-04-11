@@ -17,7 +17,7 @@
   "author": "Petr Štechmüller",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^3.6.4"
+    "typescript": "^3.8.3"
   },
   "files": [
     "lib/**/*"
