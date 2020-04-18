@@ -277,7 +277,7 @@ export function createEmptyOutputERP(experiment: ExperimentERP, index: number): 
         pulseDown: 1,
         distribution: 50,
         brightness: 100,
-        dependencies: [[], []]
+        dependencies: [[], null]
     };
 }
 
@@ -340,7 +340,7 @@ export function createEmptyOutputTVEP(experiment: ExperimentTVEP, index: number)
         wait: 1,
         patternLength: 1,
         pattern: 1,
-        brightness: 50
+        brightness: 100
     }
 }
 
