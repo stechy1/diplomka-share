@@ -273,9 +273,9 @@ export function createEmptyOutputERP(experiment: ExperimentERP, index: number): 
         experimentId: experiment.id as number,
         orderId: index,
         outputType: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
-        pulseUp: 1,
-        pulseDown: 1,
-        distribution: 50,
+        pulseUp: 1000,
+        pulseDown: 1000,
+        distribution: 0,
         brightness: 100,
         dependencies: [[], null]
     };
@@ -311,10 +311,10 @@ export function createEmptyOutputFVEP(experiment: ExperimentFVEP, index: number)
         experimentId: experiment.id as number,
         orderId: index,
         outputType: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
-        timeOn: 1,
-        timeOff: 1,
-        frequency: 1,
-        dutyCycle: 1,
+        timeOn: 1000,
+        timeOff: 1000,
+        frequency: 2000,
+        dutyCycle: 2,
         brightness: 100
     }
 }
@@ -336,10 +336,10 @@ export function createEmptyOutputTVEP(experiment: ExperimentTVEP, index: number)
         experimentId: experiment.id as number,
         orderId: index,
         outputType: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
-        out: 1,
-        wait: 1,
+        out: 1000,
+        wait: 1000,
         patternLength: 1,
-        pattern: 1,
+        pattern: 0,
         brightness: 100
     }
 }
