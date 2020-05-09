@@ -351,10 +351,9 @@ export function createEmptyExperimentREA(): ExperimentREA {
     return {
         ...experiment,
         cycleCount: 1,
-        waitTimeMin: 1,
-        waitTimeMax: 1,
-
-        missTime: 1,
+        waitTimeMin: 1000,
+        waitTimeMax: 1000,
+        missTime: 1000,
         onFail: ReaOnResponseFail.CONTINUE,
         brightness: 100,
     }
