@@ -65,3 +65,5 @@ export {
     StimulatorMemoryEvent,
     StimulatorSequencePartRequestEvent
 } from './serial-data-events'
+
+export * from './communication/client-server';
