@@ -16,17 +16,29 @@ export class MessageCodes {
     public static readonly CODE_SUCCESS = 0;
 
     // Chybové zprávy pro 'experiments' začínají na 10000
+    public static readonly CODE_ERROR_EXPERIMENT_NOT_FOUND = 10300;
     public static readonly CODE_SUCCESS_EXPERIMENT_CREATED = 10001;
+    public static readonly CODE_ERROR_EXPERIMENT_WAS_NOT_CREATED = 10301;
+    public static readonly CODE_ERROR_EXPERIMENT_ALREADY_EXISTS = 10311;
     public static readonly CODE_SUCCESS_EXPERIMENT_UPDATED = 10002;
+    public static readonly CODE_ERROR_EXPERIMENT_WAS_NOT_UPDATED = 10302;
     public static readonly CODE_SUCCESS_EXPERIMENT_DELETED = 10003;
-    public static readonly CODE_ERROR_EXPERIMENT_NOT_FOUND = 10301;
+    public static readonly CODE_ERROR_EXPERIMENT_WAS_NOT_DELETED = 10303;
+    public static readonly CODE_ERROR_EXPERIMENT_NOT_VALID = 10304;
 
     // Chybové zprávy pro 'experiment-results' začínají na 20000
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_NOT_FOUND = 20300;
     public static readonly CODE_SUCCESS_EXPERIMENT_RESULT_CREATED = 20001;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_CREATED = 20301;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_ALREADY_EXISTS = 20311;
     public static readonly CODE_SUCCESS_EXPERIMENT_RESULT_UPDATED = 20002;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_UPDATED = 20302;
     public static readonly CODE_SUCCESS_EXPERIMENT_RESULT_DELETED = 20003;
-    public static readonly CODE_ERROR_EXPERIMENT_RESULT_NOT_FOUND = 20301;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_DELETED = 20303;
     public static readonly CODE_ERROR_EXPERIMENT_RESULT_DATA_NOT_FOUND = 20304;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_NOT_VALID = 20305;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_INITIALIZED = 20306;
+    public static readonly CODE_ERROR_EXPERIMENT_IS_NOT_INITIALIZED = 20307;
 
     // Chybové zprávy pro 'sequences' začínají na 30000
     public static readonly CODE_SUCCESS_SEQUENCE_CREATED = 30001;
