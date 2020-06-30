@@ -19,40 +19,51 @@ export class MessageCodes {
     public static readonly CODE_ERROR_EXPERIMENT_NOT_FOUND = 10300;
     public static readonly CODE_SUCCESS_EXPERIMENT_CREATED = 10001;
     public static readonly CODE_ERROR_EXPERIMENT_WAS_NOT_CREATED = 10301;
-    public static readonly CODE_ERROR_EXPERIMENT_ALREADY_EXISTS = 10311;
     public static readonly CODE_SUCCESS_EXPERIMENT_UPDATED = 10002;
     public static readonly CODE_ERROR_EXPERIMENT_WAS_NOT_UPDATED = 10302;
     public static readonly CODE_SUCCESS_EXPERIMENT_DELETED = 10003;
     public static readonly CODE_ERROR_EXPERIMENT_WAS_NOT_DELETED = 10303;
     public static readonly CODE_ERROR_EXPERIMENT_NOT_VALID = 10304;
+    public static readonly CODE_ERROR_EXPERIMENT_ALREADY_EXISTS = 10305;
 
     // Chybové zprávy pro 'experiment-results' začínají na 20000
     public static readonly CODE_ERROR_EXPERIMENT_RESULT_NOT_FOUND = 20300;
     public static readonly CODE_SUCCESS_EXPERIMENT_RESULT_CREATED = 20001;
     public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_CREATED = 20301;
-    public static readonly CODE_ERROR_EXPERIMENT_RESULT_ALREADY_EXISTS = 20311;
     public static readonly CODE_SUCCESS_EXPERIMENT_RESULT_UPDATED = 20002;
     public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_UPDATED = 20302;
     public static readonly CODE_SUCCESS_EXPERIMENT_RESULT_DELETED = 20003;
     public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_DELETED = 20303;
     public static readonly CODE_ERROR_EXPERIMENT_RESULT_DATA_NOT_FOUND = 20304;
-    public static readonly CODE_ERROR_EXPERIMENT_RESULT_NOT_VALID = 20305;
-    public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_INITIALIZED = 20306;
-    public static readonly CODE_ERROR_EXPERIMENT_IS_NOT_INITIALIZED = 20307;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_ALREADY_EXISTS = 20305;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_NOT_VALID = 20306;
+    public static readonly CODE_ERROR_EXPERIMENT_RESULT_WAS_NOT_INITIALIZED = 20307;
+    public static readonly CODE_ERROR_EXPERIMENT_IS_NOT_INITIALIZED = 20308;
 
     // Chybové zprávy pro 'sequences' začínají na 30000
     public static readonly CODE_SUCCESS_SEQUENCE_CREATED = 30001;
+    public static readonly CODE_ERROR_SEQUENCE_NOT_CREATED = 30301;
     public static readonly CODE_SUCCESS_SEQUENCE_UPDATED = 30002;
+    public static readonly CODE_ERROR_SEQUENCE_NOT_UPDATED = 30302;
     public static readonly CODE_SUCCESS_SEQUENCE_DELETED = 30003;
+    public static readonly CODE_ERROR_SEQUENCE_NOT_DELETED = 30303;
     public static readonly CODE_ERROR_SEQUENCE_NOT_FOUND = 30301;
     public static readonly CODE_ERROR_SEQUENCE_UNSUPORTED_EXPERIMENT = 30304;
+    public static readonly CODE_ERROR_SEQUENCE_EXPERIMENT_DO_NOT_SUPPORT_SEQUENCES = 30305;
+    public static readonly CODE_ERROR_SEQUENCE_ALREADY_EXISTS = 30306;
+    public static readonly CODE_ERROR_SEQUENCE_NOT_VALID = 30307;
 
     // Chybové zprávy pro 'file-browser' začínají na 40000
     public static readonly CODE_SUCCESS_FILE_BROWSER_DIRECTORY_CREATED = 40001;
+    public static readonly CODE_SUCCESS_FILE_BROWSER_DIRECTORY_NOT_CREATED = 40301;
     public static readonly CODE_SUCCESS_FILE_BROWSER_FILES_UPLOADED = 40002;
     public static readonly CODE_SUCCESS_FILE_BROWSER_FILES_DELETED = 40003;
     public static readonly CODE_ERROR_FILE_BROWSER_FILES_NOT_UPLOADED = 40302;
     public static readonly CODE_ERROR_FILE_BROWSER_FILES_NOT_DELETED = 40303;
+    public static readonly CODE_ERROR_FILE_BROWSER_FILE_WAS_NOT_WRITTEN = 40304;
+    public static readonly CODE_ERROR_FILE_BROWSER_FILE_ACCESS_RESTRICTED = 40305;
+    public static readonly CODE_ERROR_FILE_BROWSER_FILE_ALREADY_EXISTS = 40306;
+    public static readonly CODE_ERROR_FILE_BROWSER_FILE_NOT_FOUND = 40307;
 
     // Chybové zprávy pro 'low-level' začínají na 50000
     public static readonly CODE_SUCCESS_LOW_LEVEL_PORT_OPPENED = 50001;
@@ -60,6 +71,9 @@ export class MessageCodes {
     public static readonly CODE_ERROR_LOW_LEVEL_PORT_NOT_OPPENED = 50301;
     public static readonly CODE_ERROR_LOW_LEVEL_FIRMWARE_NOT_UPDATED = 50302;
     public static readonly CODE_ERROR_LOW_LEVEL_PORT_NOT_OPEN = 50303;
+    public static readonly CODE_ERROR_LOW_LEVEL_PORT_ALREADY_OPEN = 50304;
+    public static readonly CODE_ERROR_LOW_LEVEL_PORT_UNABLE_TO_CLOSE = 50305;
+    public static readonly CODE_ERROR_LOW_LEVEL_PORT_UNABLE_TO_OPEN = 50305;
 
     // Chybové zprávy pro 'settings' začínají na 60000
     public static readonly CODE_SUCCESS_SETTINGS_UPDATED = 60001;
@@ -79,5 +93,11 @@ export class MessageCodes {
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH_NOT_RUNNING = 70316;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_CLEAR = 70307;
     public static readonly CODE_ERROR_COMMANDS_STIMULATOR_STATE = 70308;
+    public static readonly CODE_ERROR_STIMULATOR_FIRMWARE_NOT_UPDATED = 70309;
+    public static readonly CODE_ERROR_STIMULATOR_UNKNOWN_ACTION = 70310;
+    public static readonly CODE_ERROR_STIMULATOR_UNSUPPORTED_COMMAND = 70311;
 
+    // Chybové zprávy pro 'ipc' začínájí na 80000
+    public static readonly ERROR_CODE_IPC_ALREADY_CONNECTED = 70301;
+    public static readonly ERROR_CODE_IPC_NOT_OPEN = 70302;
 }
