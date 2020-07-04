@@ -258,8 +258,8 @@ export function createEmptyExperimentERP(): ExperimentERP {
     return {
         ...experiment,
         maxDistribution: 100,
-        out: 1,
-        wait: 1,
+        out: 1000,
+        wait: 1000,
         edge: Edge.FALLING,
         random: Random.OFF,
         outputs: [],
@@ -287,8 +287,8 @@ export function createEmptyExperimentCVEP(): ExperimentCVEP {
 
     return {
         ...experiment,
-        out: 1,
-        wait: 1,
+        out: 1000,
+        wait: 1000,
         pattern: 0,
         bitShift: 0,
         brightness: 100
