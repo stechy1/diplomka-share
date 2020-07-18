@@ -67,3 +67,5 @@ export {
 } from './serial-data-events'
 
 export * from './communication/client-server';
+
+export * from './users';
