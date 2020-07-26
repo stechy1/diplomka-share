@@ -4,6 +4,7 @@ export enum SocketMessageSpecialization {
     SEQUENCES,
     CONNECTION,
     STIMULATOR,
+    EXPERIMENT_PLAYER,
     SERIAL_PORT,
     SETTINGS,
     FILE_BROWSER
