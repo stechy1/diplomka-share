@@ -69,3 +69,5 @@ export {
 export * from './communication/client-server';
 
 export * from './users';
+
+export * from './player'
