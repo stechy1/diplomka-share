@@ -41,24 +41,25 @@ export class MessageCodes {
     public static readonly CODE_ERROR_EXPERIMENT_IS_NOT_INITIALIZED = 20308;
 
     // Chybové zprávy pro 'sequences' začínají na 30000
+    public static readonly CODE_ERROR_SEQUENCE_NOT_FOUND = 30300;
     public static readonly CODE_SUCCESS_SEQUENCE_CREATED = 30001;
     public static readonly CODE_ERROR_SEQUENCE_NOT_CREATED = 30301;
     public static readonly CODE_SUCCESS_SEQUENCE_UPDATED = 30002;
     public static readonly CODE_ERROR_SEQUENCE_NOT_UPDATED = 30302;
     public static readonly CODE_SUCCESS_SEQUENCE_DELETED = 30003;
     public static readonly CODE_ERROR_SEQUENCE_NOT_DELETED = 30303;
-    public static readonly CODE_ERROR_SEQUENCE_NOT_FOUND = 30301;
     public static readonly CODE_ERROR_SEQUENCE_UNSUPORTED_EXPERIMENT = 30304;
     public static readonly CODE_ERROR_SEQUENCE_EXPERIMENT_DO_NOT_SUPPORT_SEQUENCES = 30305;
     public static readonly CODE_ERROR_SEQUENCE_ALREADY_EXISTS = 30306;
     public static readonly CODE_ERROR_SEQUENCE_NOT_VALID = 30307;
+    public static readonly CODE_ERROR_SEQUENCE_INVALID_SIZE = 30308;
 
     // Chybové zprávy pro 'file-browser' začínají na 40000
     public static readonly CODE_SUCCESS_FILE_BROWSER_DIRECTORY_CREATED = 40001;
     public static readonly CODE_SUCCESS_FILE_BROWSER_DIRECTORY_NOT_CREATED = 40301;
     public static readonly CODE_SUCCESS_FILE_BROWSER_FILES_UPLOADED = 40002;
-    public static readonly CODE_SUCCESS_FILE_BROWSER_FILES_DELETED = 40003;
     public static readonly CODE_ERROR_FILE_BROWSER_FILES_NOT_UPLOADED = 40302;
+    public static readonly CODE_SUCCESS_FILE_BROWSER_FILES_DELETED = 40003;
     public static readonly CODE_ERROR_FILE_BROWSER_FILES_NOT_DELETED = 40303;
     public static readonly CODE_ERROR_FILE_BROWSER_FILE_WAS_NOT_WRITTEN = 40304;
     public static readonly CODE_ERROR_FILE_BROWSER_FILE_ACCESS_RESTRICTED = 40305;
@@ -67,13 +68,13 @@ export class MessageCodes {
 
     // Chybové zprávy pro 'low-level' začínají na 50000
     public static readonly CODE_SUCCESS_LOW_LEVEL_PORT_OPPENED = 50001;
-    public static readonly CODE_SUCCESS_LOW_LEVEL_FIRMWARE_UPDATED = 50002;
     public static readonly CODE_ERROR_LOW_LEVEL_PORT_NOT_OPPENED = 50301;
+    public static readonly CODE_SUCCESS_LOW_LEVEL_FIRMWARE_UPDATED = 50002;
     public static readonly CODE_ERROR_LOW_LEVEL_FIRMWARE_NOT_UPDATED = 50302;
     public static readonly CODE_ERROR_LOW_LEVEL_PORT_NOT_OPEN = 50303;
     public static readonly CODE_ERROR_LOW_LEVEL_PORT_ALREADY_OPEN = 50304;
-    public static readonly CODE_ERROR_LOW_LEVEL_PORT_UNABLE_TO_CLOSE = 50305;
     public static readonly CODE_ERROR_LOW_LEVEL_PORT_UNABLE_TO_OPEN = 50305;
+    public static readonly CODE_ERROR_LOW_LEVEL_PORT_UNABLE_TO_CLOSE = 50306;
 
     // Chybové zprávy pro 'settings' začínají na 60000
     public static readonly CODE_SUCCESS_SETTINGS_UPDATED = 60001;
@@ -82,22 +83,49 @@ export class MessageCodes {
     // Chybové zprávy pro 'commands' začínají na 70000
     public static readonly CODE_ERROR_COMMANDS_INVALID_URL = 70301;
     public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_UPLOAD = 70302;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_UPLOAD_NOT_CLEARED = 70312;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_SETUP = 70303;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_SETUP_NOT_UPLOADED = 70313;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_RUN = 70304;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_RUN_NOT_INITIALIZED = 70314;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_PAUSE = 70305;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_PAUSE_NOT_STARTED = 70315;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH = 70306;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH_NOT_RUNNING = 70316;
-    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_CLEAR = 70307;
-    public static readonly CODE_ERROR_COMMANDS_STIMULATOR_STATE = 70308;
-    public static readonly CODE_ERROR_STIMULATOR_FIRMWARE_NOT_UPDATED = 70309;
-    public static readonly CODE_ERROR_STIMULATOR_UNKNOWN_ACTION = 70310;
-    public static readonly CODE_ERROR_STIMULATOR_UNSUPPORTED_COMMAND = 70311;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_UPLOAD_NOT_CLEARED = 70303;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_SETUP = 70304;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_SETUP_NOT_UPLOADED = 70305;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_RUN = 70306;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_RUN_NOT_INITIALIZED = 70307;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_PAUSE = 70308;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_PAUSE_NOT_STARTED = 70309;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH = 70310;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_FINISH_NOT_RUNNING = 70311;
+    public static readonly CODE_ERROR_COMMANDS_EXPERIMENT_CLEAR = 70312;
+    public static readonly CODE_ERROR_COMMANDS_STIMULATOR_STATE = 70313;
+    public static readonly CODE_ERROR_STIMULATOR_FIRMWARE_NOT_UPDATED = 70314;
+    public static readonly CODE_ERROR_STIMULATOR_UNKNOWN_ACTION = 70315;
+    public static readonly CODE_ERROR_STIMULATOR_UNSUPPORTED_COMMAND = 70316;
+    public static readonly CODE_ERROR_STIMULATOR_NO_UPLOADED_EXPERIMENT = 70317;
+    public static readonly CODE_ERROR_STIMULATOR_PLAYER_NOT_INITIALIZED = 70318;
+    public static readonly CODE_ERROR_STIMULATOR_ACTION_NOT_POSSIBLE = 70319;
 
     // Chybové zprávy pro 'ipc' začínájí na 80000
-    public static readonly ERROR_CODE_IPC_ALREADY_CONNECTED = 70301;
-    public static readonly ERROR_CODE_IPC_NOT_OPEN = 70302;
+    public static readonly CODE_ERROR_IPC_ALREADY_CONNECTED = 80301;
+    public static readonly CODE_ERROR_IPC_NOT_OPEN = 80302;
+
+    // Chybové zprávy pro správu session (přihlášení/odhlášení) začínají 90000
+    public static readonly CODE_ERROR_AUTH_UNAUTHORIZED = 90300;
+    public static readonly CODE_SUCCESS_AUTH_LOGIN = 90001;
+    public static readonly CODE_ERROR_AUTH_LOGIN_FAILED = 90301;
+    public static readonly CODE_SUCCESS_AUTH_TOKEN_REFRESH = 90002;
+    public static readonly CODE_ERROR_AUTH_TOKEN_REFRESH_FAILED = 90302;
+    public static readonly CODE_ERROR_AUTH_TOKEN_EXPIRED = 90303;
+    public static readonly CODE_ERROR_AUTH_TOKEN_NOT_FOUND = 90304;
+
+    // chybové zprávy pro přehrávač 'player' začínají na 10000
+    public static readonly CODE_ERROR_PLAYER_EXPERIMENT_RESULT_IS_NOT_INITIALIZED = 11301;
+    public static readonly CODE_ERROR_PLAYER_ANOTHER_EXPERIMENT_RESULT_IS_INITIALIZED = 11302;
+    public static readonly CODE_ERROR_PLAYER_UNSUPPORTED_STOP_CONDITION = 11303;
+
+    // chybové zprávy pro 'user' začínají na 11000
+    public static readonly CODE_ERROR_USER_NOT_FOUND = 11300;
+    public static readonly CODE_ERROR_USER_ID_NOT_FOUND = 11301;
+    public static readonly CODE_ERROR_USER_NOT_VALID = 11302;
+    public static readonly CODE_SUCCESS_USER_CREATED = 11003;
+    public static readonly CODE_ERROR_USER_NOT_CREATED = 11303;
+    public static readonly CODE_ERROR_USER_NOT_UPDATED = 11304;
+    public static readonly CODE_ERROR_USER_NOT_DELETED = 11305;
+    public static readonly CODE_ERROR_USER_NOT_REGISTRED = 11306;
 }
