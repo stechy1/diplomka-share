@@ -16,6 +16,7 @@ export {
     ErpOutput, OutputDependency,
     TvepOutput,
     FvepOutput,
+    ExperimentSupportSequences,
     ReaOnResponseFail,
     createEmptyExperiment, experimentTypeFromRaw,
     outputTypeFromRaw, outputTypeToRaw,

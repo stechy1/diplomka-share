@@ -15,6 +15,8 @@ export interface Experiment {
     outputCount: number;
     // Tagy experimentu
     tags: string[];
+    // Flag pro podporu sekvencí
+    supportSequences: boolean
 }
 
 export enum ExperimentType {
@@ -29,7 +31,7 @@ export interface OutputType {
     audioFile?: string;
 }
 
-export interface ExperimentERP extends Experiment {
+export interface ExperimentERP extends Experiment, ExperimentSupportSequences {
     // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
     maxDistribution: number;
     // Doba v [ms], po kterou je výstup aktivní
@@ -42,8 +44,6 @@ export interface ExperimentERP extends Experiment {
     random: Random;
     // Přiřazené výstupy
     outputs: ErpOutput[];
-    // ID sequence, která se použije, nebo null v případě žádné definované sequence
-    sequenceId: number|null;
 }
 
 /**
@@ -177,6 +177,11 @@ export interface ExperimentREA extends Experiment {
     brightness: number;
 }
 
+export interface ExperimentSupportSequences {
+    // ID sequence, která se použije, nebo null v případě žádné definované sequence
+    sequenceId: number|null;
+}
+
 export enum ReaOnResponseFail {
     // Nový výstup se aktivuje okemžitě
     CONTINUE,
@@ -247,13 +252,15 @@ export function createEmptyExperiment(): Experiment {
         type: ExperimentType.NONE,
         usedOutputs: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
         outputCount: 1,
-        tags: []
+        tags: [],
+        supportSequences: false
     };
 }
 
 export function createEmptyExperimentERP(): ExperimentERP {
     const experiment: Experiment = createEmptyExperiment();
     experiment.type = ExperimentType.ERP;
+    experiment.supportSequences = true;
 
     return {
         ...experiment,
