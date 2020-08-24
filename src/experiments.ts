@@ -44,6 +44,8 @@ export interface ExperimentERP extends Experiment, ExperimentSupportSequences {
     random: Random;
     // Přiřazené výstupy
     outputs: ErpOutput[];
+    // ID sequence, která se použije, nebo null v případě žádné definované sequence
+    sequenceId: number|null;
 }
 
 /**
@@ -60,7 +62,7 @@ export enum Random {
     OFF, SHORT, LONG, SHORT_LONG
 }
 
-export interface ErpOutput {
+export interface ErpOutput extends OutputForSequence {
     // Unikátní ID přes všechny výstupy
     id: number;
     // ID experimentu, ke kterému je výstup přiřazen
@@ -78,16 +80,23 @@ export interface ErpOutput {
     // Svítivost výstupu v případě LED
     brightness: number;
     // Závislosti výstupu na ostatních výstupech
-    dependencies: [OutputDependency[], any]
+    dependencies: [ErpOutputDependency[], any]
 }
 
-export interface OutputDependency {
+export interface ErpOutputDependency extends OutputDependency {
     // Unikádní ID přeš všechny závislosti výstupů
     id: number;
     // ID experimentu, ke kterému je závislost spřažena
     experimentId: number;
     // ID výstupu, ke kterému je závislost spřažena
     sourceOutput: number;
+    // ID závislosti výstupu, na kterém tato závislost závisí
+    destOutput: number;
+    // Kolikrát se musí vyskytnout 'destOutput', než se bude moct vyskytnout 'sourceOutput'
+    count: number;
+}
+
+export interface OutputDependency {
     // ID závislosti výstupu, na kterém tato závislost závisí
     destOutput: number;
     // Kolikrát se musí vyskytnout 'destOutput', než se bude moct vyskytnout 'sourceOutput'
@@ -178,8 +187,20 @@ export interface ExperimentREA extends Experiment {
 }
 
 export interface ExperimentSupportSequences {
+    outputCount: number;
+    // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
+    maxDistribution: number;
     // ID sequence, která se použije, nebo null v případě žádné definované sequence
     sequenceId: number|null;
+
+    outputs: OutputForSequence[];
+}
+
+export interface OutputForSequence {
+    // Distribuce výstupu (pravděpodobnost, že se výstup ukáže v sekvenci)
+    distribution: number;
+    // Závislosti výstupu na ostatních výstupech
+    dependencies: [OutputDependency[], any]
 }
 
 export enum ReaOnResponseFail {
