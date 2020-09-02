@@ -210,6 +210,11 @@ export enum ReaOnResponseFail {
     WAIT
 }
 
+export interface ExperimentAssets {
+    audio: Record<number, string>;
+    image: Record<number, string>;
+}
+
 export function experimentTypeFromRaw(raw: string): ExperimentType {
     switch (raw.toUpperCase()) {
         case ExperimentType[ExperimentType.ERP]:

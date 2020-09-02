@@ -19,6 +19,7 @@ export {
     TvepOutput,
     FvepOutput,
     ExperimentSupportSequences,
+    ExperimentAssets,
     ReaOnResponseFail,
     createEmptyExperiment, experimentTypeFromRaw,
     outputTypeFromRaw, outputTypeToRaw,
