@@ -1,4 +1,5 @@
 export enum SocketMessageSpecialization {
+    CLIENT,
     EXPERIMENTS,
     EXPERIMENT_RESULTS,
     SEQUENCES,
