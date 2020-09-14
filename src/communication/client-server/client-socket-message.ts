@@ -6,4 +6,6 @@ export class ClientReadyMessage implements SocketMessage {
     public readonly type = SocketMessageType.CLIENT_READY;
     public readonly specialization = SocketMessageSpecialization.CLIENT;
     public readonly data = null;
+
+    constructor() {}
 }
