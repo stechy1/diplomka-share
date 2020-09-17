@@ -66,6 +66,8 @@ export class CommandFromStimulator {
 	public static readonly COMMAND_STIMULATOR_STATE_FINISHED = COMMAND_EXPERIMENT_FINISH;
 	public static readonly COMMAND_STIMULATOR_STATE_CLEARED = COMMAND_EXPERIMENT_CLEAR;
 
+	public static readonly COMMAND_STIMULATOR_REQUEST_FINISH = 0x02;
+
 	public static readonly COMMAND_OUTPUT_ACTIVATED = 0x10;
 	public static readonly COMMAND_OUTPUT_DEACTIVATED = 0x11;
 	public static readonly COMMAND_INPUT_ACTIVATED = 0x12;
