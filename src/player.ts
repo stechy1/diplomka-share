@@ -13,5 +13,6 @@ export interface PlayerConfiguration {
 }
 
 export enum ExperimentStopConditionType {
+	NO_STOP_CONDITION,
 	COUNTING_EXPERIMENT_STOP_CONDITION,
 }
