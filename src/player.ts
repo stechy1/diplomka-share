@@ -4,7 +4,11 @@ export interface OutputCountingExperimentStopConditionParams {
 	maxOutput: number;
 }
 
-export type ExperimentStopConditionParams = {} | OutputCountingExperimentStopConditionParams;
+export interface CycleCountingExperimentStopConditionParams {
+	cycleCount: number;
+}
+
+export type ExperimentStopConditionParams = {} | OutputCountingExperimentStopConditionParams | CycleCountingExperimentStopConditionParams;
 
 export interface PlayerConfiguration {
 	initialized: boolean,
@@ -20,4 +24,5 @@ export interface PlayerConfiguration {
 export enum ExperimentStopConditionType {
 	NO_STOP_CONDITION,
 	COUNTING_EXPERIMENT_STOP_CONDITION,
+	COUNTING_CYCLE_STOP_CONDITION
 }
