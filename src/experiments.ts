@@ -1,4 +1,4 @@
-export interface Experiment {
+export interface Experiment<O extends Output> {
     // Unikátní ID přes všechny experimenty
     id?: number;
     // Název experimentu
@@ -16,8 +16,56 @@ export interface Experiment {
     // Tagy experimentu
     tags: string[];
     // Flag pro podporu sekvencí
-    supportSequences: boolean
+    supportSequences: boolean;
+    // Kolekce výstupů
+    outputs: O[];
 }
+
+export interface Output extends OutputLedDefinition, OutputImageDefinition {
+    // Unikátní ID přes všechny výstupy
+    id: number;
+    // ID experimentu, ke kterému je výstup přiřazen
+    experimentId: number;
+    // Pořadí výstupu (1 - 8)
+    orderId: number;
+    // Typ výstupu
+    outputType: OutputType;
+}
+
+export interface OutputLedDefinition {
+    // Svítivost výstupu v případě LED
+    brightness: number;
+}
+
+export interface OutputImageDefinition {
+    // X-ová souřadnice obrázku
+    x: number;
+    // Y-ová souřadnice obrázku
+    y: number;
+    // Šířka obrázku
+    width: number;
+    // Výška obrázku
+    height: number;
+    // Flag určující, zda-li se má použít [x,y] souřadnice, nebo relativní výpočet
+    manualAlignment: boolean;
+    // Horizontální zarovnání obrázku
+    horizontalAlignment: HorizontalAlignment;
+    // Vertikální zarovnání obrázku
+    verticalAlignment: VerticalAlignment;
+}
+
+export enum HorizontalAlignment {
+    LEFT,
+    CENTER,
+    RIGHT,
+}
+
+export enum VerticalAlignment {
+    BOTTOM,
+    CENTER,
+    TOP,
+}
+
 
 export enum ExperimentType {
     NONE, ERP, CVEP, FVEP, TVEP, REA
@@ -31,9 +79,7 @@ export interface OutputType {
     audioFile?: string;
 }
 
-export interface ExperimentERP extends Experiment, ExperimentSupportSequences {
-    // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
-    maxDistribution: number;
+export interface ExperimentERP extends Experiment<ErpOutput>, ExperimentSupportSequences {
     // Doba v [ms], po kterou je výstup aktivní
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
@@ -44,8 +90,6 @@ export interface ExperimentERP extends Experiment, ExperimentSupportSequences {
     random: Random;
     // Přiřazené výstupy
     outputs: ErpOutput[];
-    // ID sequence, která se použije, nebo null v případě žádné definované sequence
-    sequenceId: number|null;
 }
 
 /**
@@ -62,23 +106,11 @@ export enum Random {
     OFF, SHORT, LONG, SHORT_LONG
 }
 
-export interface ErpOutput extends OutputForSequence {
-    // Unikátní ID přes všechny výstupy
-    id: number;
-    // ID experimentu, ke kterému je výstup přiřazen
-    experimentId: number;
-    // Pořadí výstupu (1 - 8)
-    orderId: number;
-    // Typ výstupu
-    outputType: OutputType;
+export interface ErpOutput extends Output, OutputForSequence {
     // Doba aktivního výstupu
     pulseUp: number;
     // Doba neaktivního výstupu
     pulseDown: number;
-    // Distribuce výstupu (pravděpodobnost, že se výstup ukáže v sekvenci)
-    distribution: number;
-    // Svítivost výstupu v případě LED
-    brightness: number;
     // Závislosti výstupu na ostatních výstupech
     dependencies: [ErpOutputDependency[], any]
 }
@@ -90,10 +122,6 @@ export interface ErpOutputDependency extends OutputDependency {
     experimentId: number;
     // ID výstupu, ke kterému je závislost spřažena
     sourceOutput: number;
-    // ID závislosti výstupu, na kterém tato závislost závisí
-    destOutput: number;
-    // Kolikrát se musí vyskytnout 'destOutput', než se bude moct vyskytnout 'sourceOutput'
-    count: number;
 }
 
 export interface OutputDependency {
@@ -103,7 +131,7 @@ export interface OutputDependency {
     count: number;
 }
 
-export interface ExperimentCVEP extends Experiment {
+export interface ExperimentCVEP extends Experiment<CvepOutput> {
     // Doba v [ms], po kterou je výstup aktivní
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
@@ -116,20 +144,12 @@ export interface ExperimentCVEP extends Experiment {
     brightness: number;
 }
 
-export interface ExperimentFVEP extends Experiment {
-    // Pole jednotlivých výstupů
-    outputs: FvepOutput[];
+export interface CvepOutput extends Output {
 }
 
-export interface FvepOutput {
-    // Unikátní ID přes všechny výstupy
-    id: number;
-    // ID experimentu, ke kterému je výstup přiřazen
-    experimentId: number;
-    // Pořadí výstupu (1 - 8)
-    orderId: number;
-    // Typ výstupu
-    outputType: OutputType;
+export interface ExperimentFVEP extends Experiment<FvepOutput> {}
+
+export interface FvepOutput extends Output {
     // Doba, po kterou bude výstup svítit
     timeOn: number;
     // Doba, po kterou bude výstup zhasnutý
@@ -138,26 +158,14 @@ export interface FvepOutput {
     frequency: number;
     // Poměr doby svícení vzhledem k zadané periodě
     dutyCycle: number;
-    // Svítivost všech výstupů
-    brightness: number;
 }
 
-export interface ExperimentTVEP extends Experiment {
+export interface ExperimentTVEP extends Experiment<TvepOutput> {
     // Příznak, zda-li mají výstupy sdílet délku patternu
     sharePatternLength: boolean;
-    // Pole jednotlivých výstupů
-    outputs: TvepOutput[];
 }
 
-export interface TvepOutput {
-    // Unikátní ID přes všechny výstupy
-    id: number;
-    // ID experimentu, ke kterému je výstup přiřazen
-    experimentId: number;
-    // Pořadí výstupu (1 - 8)
-    orderId: number;
-    // Typ výstupu
-    outputType: OutputType;
+export interface TvepOutput extends Output {
     // Délka patternu
     patternLength: number;
     // Pattern, podle kterého bude výstup blikat
@@ -166,11 +174,9 @@ export interface TvepOutput {
     out: number;
     // Doba v [ms], po kterou je výstup neaktivní
     wait: number;
-    // Svítivost všech výstupů
-    brightness: number;
 }
 
-export interface ExperimentREA extends Experiment {
+export interface ExperimentREA extends Experiment<ReaOutput> {
     // Počet cyklů v experimentu
     cycleCount: number;
     // Minimální prodleva mezi jednotlivými výstupy
@@ -186,13 +192,16 @@ export interface ExperimentREA extends Experiment {
     brightness: number;
 }
 
+export interface ReaOutput extends Output {
+}
+
 export interface ExperimentSupportSequences {
     outputCount: number;
     // Maximální hodnota parametru distribution value pro všechny výstupy dané konfigurace
     maxDistribution: number;
     // ID sequence, která se použije, nebo null v případě žádné definované sequence
-    sequenceId: number|null;
-
+    sequenceId: number | null;
+    // Pole výstupů
     outputs: OutputForSequence[];
 }
 
@@ -270,21 +279,28 @@ export function outputTypeToRaw(outputType: OutputType): number {
     return outputTypeRaw;
 }
 
-export function createEmptyExperiment(): Experiment {
+export function createEmptyExperiment<O extends Output>(): Experiment<O> {
     return {
         name: '',
         description: '',
         created: new Date().getTime(),
         type: ExperimentType.NONE,
-        usedOutputs: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
+        usedOutputs: {
+            led: true,
+            image: false,
+            audio: false,
+            imageFile: undefined,
+            audioFile: undefined
+        },
         outputCount: 1,
         tags: [],
-        supportSequences: false
+        supportSequences: false,
+        outputs: []
     };
 }
 
 export function createEmptyExperimentERP(): ExperimentERP {
-    const experiment: Experiment = createEmptyExperiment();
+    const experiment: Experiment<ErpOutput> = createEmptyExperiment();
     experiment.type = ExperimentType.ERP;
     experiment.supportSequences = true;
 
@@ -305,17 +321,30 @@ export function createEmptyOutputERP(experiment: ExperimentERP, index: number): 
         id: 1,
         experimentId: experiment.id as number,
         orderId: index,
-        outputType: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
+        outputType: {
+            led: true,
+            image: false,
+            audio: false,
+            imageFile: undefined,
+            audioFile: undefined
+        },
         pulseUp: 1000,
         pulseDown: 1000,
         distribution: 0,
         brightness: 100,
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        manualAlignment: false,
+        horizontalAlignment: HorizontalAlignment.CENTER,
+        verticalAlignment: VerticalAlignment.CENTER,
         dependencies: [[], null]
     };
 }
 
 export function createEmptyExperimentCVEP(): ExperimentCVEP {
-    const experiment: Experiment = createEmptyExperiment();
+    const experiment: Experiment<CvepOutput> = createEmptyExperiment();
     experiment.type = ExperimentType.CVEP;
 
     return {
@@ -324,12 +353,36 @@ export function createEmptyExperimentCVEP(): ExperimentCVEP {
         wait: 1000,
         pattern: 0,
         bitShift: 0,
-        brightness: 100
+        brightness: 100,
+        outputs: []
+    }
+}
+
+export function createEmptyOutputCVEP(experiment: ExperimentCVEP, index: number): CvepOutput {
+    return {
+        id: 1,
+        experimentId: experiment.id as number,
+        orderId: index,
+        outputType: {
+            led: true,
+            image: false,
+            audio: false,
+            imageFile: undefined,
+            audioFile: undefined
+        },
+        brightness: 100,
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        manualAlignment: false,
+        horizontalAlignment: HorizontalAlignment.CENTER,
+        verticalAlignment: VerticalAlignment.CENTER
     }
 }
 
 export function createEmptyExperimentFVEP(): ExperimentFVEP {
-    const experiment: Experiment = createEmptyExperiment();
+    const experiment: Experiment<FvepOutput> = createEmptyExperiment();
     experiment.type = ExperimentType.FVEP;
 
     return {
@@ -343,17 +396,30 @@ export function createEmptyOutputFVEP(experiment: ExperimentFVEP, index: number)
         id: 1,
         experimentId: experiment.id as number,
         orderId: index,
-        outputType: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
+        outputType: {
+            led: true,
+            image: false,
+            audio: false,
+            imageFile: undefined,
+            audioFile: undefined
+        },
         timeOn: 1000,
         timeOff: 1000,
         frequency: 2000,
         dutyCycle: 2,
-        brightness: 100
+        brightness: 100,
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        manualAlignment: false,
+        horizontalAlignment: HorizontalAlignment.CENTER,
+        verticalAlignment: VerticalAlignment.CENTER
     }
 }
 
 export function createEmptyExperimentTVEP(): ExperimentTVEP {
-    const experiment: Experiment = createEmptyExperiment();
+    const experiment: Experiment<TvepOutput> = createEmptyExperiment();
     experiment.type = ExperimentType.TVEP;
 
     return {
@@ -368,17 +434,30 @@ export function createEmptyOutputTVEP(experiment: ExperimentTVEP, index: number)
         id: 1,
         experimentId: experiment.id as number,
         orderId: index,
-        outputType: { led: true, image: false, audio: false, imageFile: undefined, audioFile: undefined },
+        outputType: {
+            led: true,
+            image: false,
+            audio: false,
+            imageFile: undefined,
+            audioFile: undefined
+        },
         out: 1000,
         wait: 1000,
         patternLength: 1,
         pattern: 0,
-        brightness: 100
+        brightness: 100,
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        manualAlignment: false,
+        horizontalAlignment: HorizontalAlignment.CENTER,
+        verticalAlignment: VerticalAlignment.CENTER
     }
 }
 
 export function createEmptyExperimentREA(): ExperimentREA {
-    const experiment: Experiment = createEmptyExperiment();
+    const experiment: Experiment<ReaOutput> = createEmptyExperiment();
     experiment.type = ExperimentType.REA;
 
     return {
@@ -389,5 +468,29 @@ export function createEmptyExperimentREA(): ExperimentREA {
         missTime: 1000,
         onFail: ReaOnResponseFail.CONTINUE,
         brightness: 100,
+        outputs: []
+    }
+}
+
+export function createEmptyOutputREA(experiment: ExperimentREA, index: number): ReaOutput {
+    return {
+        id: 1,
+        experimentId: experiment.id as number,
+        orderId: index,
+        outputType: {
+            led: true,
+            image: false,
+            audio: false,
+            imageFile: undefined,
+            audioFile: undefined
+        },
+        brightness: 100,
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        manualAlignment: false,
+        horizontalAlignment: HorizontalAlignment.CENTER,
+        verticalAlignment: VerticalAlignment.CENTER
     }
 }

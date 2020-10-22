@@ -4,6 +4,8 @@ export interface FileRecord {
 	path: string;
 	isDirectory: boolean;
 	isImage: boolean;
+	width?: number;
+	height?: number;
 	extention: string;
 	selected: boolean;
 }

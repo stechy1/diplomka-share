@@ -1,4 +1,4 @@
-import { Experiment, ExperimentType } from './experiments';
+import { Experiment, ExperimentType, Output } from './experiments';
 
 
 export interface ExperimentResult {
@@ -20,7 +20,7 @@ export interface ExperimentResult {
 
 }
 
-export function createEmptyExperimentResult(experiment: Experiment): ExperimentResult {
+export function createEmptyExperimentResult<O extends Output>(experiment: Experiment<O>): ExperimentResult {
 	const date = Date.now();
 	return {
 		experimentID: experiment.id ? experiment.id : -1,

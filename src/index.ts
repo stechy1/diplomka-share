@@ -15,9 +15,13 @@ export {
     Edge, Random,
     OutputForSequence,
     OutputDependency,
+    Output, OutputLedDefinition, OutputImageDefinition,
+    HorizontalAlignment, VerticalAlignment,
+    CvepOutput,
     ErpOutput, ErpOutputDependency,
     TvepOutput,
     FvepOutput,
+    ReaOutput,
     ExperimentSupportSequences,
     ExperimentAssets,
     ReaOnResponseFail,
@@ -27,10 +31,12 @@ export {
     createEmptyExperimentCVEP,
     createEmptyExperimentFVEP,
     createEmptyExperimentTVEP,
+    createEmptyExperimentREA,
+    createEmptyOutputCVEP,
     createEmptyOutputERP,
     createEmptyOutputFVEP,
     createEmptyOutputTVEP,
-    createEmptyExperimentREA
+    createEmptyOutputREA,
 } from './experiments'
 
 export {
