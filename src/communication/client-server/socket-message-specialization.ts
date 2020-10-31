@@ -8,5 +8,6 @@ export enum SocketMessageSpecialization {
     EXPERIMENT_PLAYER,
     SERIAL_PORT,
     SETTINGS,
-    FILE_BROWSER
+    FILE_BROWSER,
+    ASSET_PLAYER
 }

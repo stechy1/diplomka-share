@@ -6,4 +6,5 @@ export * from './connection-socket-message';
 export * from './stimulator-socket-message';
 export * from './experiment-results-socket-message';
 export * from './experiment-player-socket-message';
-export * from './client-socket-message'
+export * from './client-socket-message';
+export * from './asset-player-socket-message';
