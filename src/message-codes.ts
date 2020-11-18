@@ -25,6 +25,7 @@ export class MessageCodes {
     public static readonly CODE_ERROR_EXPERIMENT_WAS_NOT_DELETED = 10303;
     public static readonly CODE_ERROR_EXPERIMENT_NOT_VALID = 10304;
     public static readonly CODE_ERROR_EXPERIMENT_ALREADY_EXISTS = 10305;
+    public static readonly CODE_ERROR_EXPERIMENT_OUTPUT_SYNCHRONIZATION_DISABLED = 10306;
 
     // Chybové zprávy pro 'experiment-results' začínají na 20000
     public static readonly CODE_ERROR_EXPERIMENT_RESULT_NOT_FOUND = 20300;

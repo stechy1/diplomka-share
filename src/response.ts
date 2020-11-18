@@ -1,6 +1,6 @@
 export interface ResponseMessage {
     code: number
-    params?: {},
+    params?: Record<string, unknown>,
 }
 
 export interface ResponseObject<T> {
