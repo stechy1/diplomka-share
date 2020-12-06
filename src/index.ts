@@ -81,3 +81,5 @@ export * from './communication/client-server';
 export * from './users';
 
 export * from './player'
+
+export { AssetPlayerSettings, Settings } from './settings';

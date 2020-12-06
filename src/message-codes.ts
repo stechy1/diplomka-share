@@ -103,8 +103,13 @@ export class MessageCodes {
     public static readonly CODE_ERROR_STIMULATOR_ACTION_NOT_POSSIBLE = 70319;
 
     // Chybové zprávy pro 'ipc' začínájí na 80000
-    public static readonly CODE_ERROR_IPC_ALREADY_CONNECTED = 80301;
+    public static readonly CODE_ERROR_IPC_ALREADY_OPEN = 80301;
     public static readonly CODE_ERROR_IPC_NOT_OPEN = 80302;
+    public static readonly CODE_ERROR_IPC_PLAYER_ALREADY_RUNNING = 80303;
+    public static readonly CODE_ERROR_IPC_PLAYER_NOT_RUNNING = 80304;
+    public static readonly CODE_ERROR_IPC_PYTHON_PATH_NOT_DEFINED = 80305;
+    public static readonly CODE_ERROR_IPC_MAIN_PATH_NOT_DEFINED = 80306;
+    public static readonly CODE_ERROR_IPC_SYNC_EXPERIMENT_ID_MISSING = 80307;
 
     // Chybové zprávy pro správu session (přihlášení/odhlášení) začínají 90000
     public static readonly CODE_ERROR_AUTH_UNAUTHORIZED = 90300;
