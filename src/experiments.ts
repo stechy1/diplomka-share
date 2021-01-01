@@ -243,6 +243,65 @@ export function experimentTypeFromRaw(raw: string): ExperimentType {
 
 }
 
+export function horizontalAlignmentFromRaw(raw: string): HorizontalAlignment {
+    switch (raw.toUpperCase()) {
+        case HorizontalAlignment[HorizontalAlignment.LEFT]:
+            return HorizontalAlignment.LEFT;
+        case HorizontalAlignment[HorizontalAlignment.RIGHT]:
+            return HorizontalAlignment.RIGHT;
+        default:
+            return HorizontalAlignment.CENTER;
+    }
+}
+
+export function verticalAlignmentFromRaw(raw: string): VerticalAlignment {
+    switch (raw.toUpperCase()) {
+        case VerticalAlignment[VerticalAlignment.TOP]:
+            return VerticalAlignment.TOP;
+        case VerticalAlignment[VerticalAlignment.BOTTOM]:
+            return VerticalAlignment.BOTTOM;
+        default:
+            return VerticalAlignment.CENTER;
+    }
+}
+
+export function edgeFromRaw(raw: string): Edge {
+    switch (raw.toUpperCase()) {
+        case Edge[Edge.LEADING]:
+            return Edge.LEADING;
+        case Edge[Edge.FALLING]:
+            return Edge.FALLING;
+        default:
+            return Edge.LEADING;
+    }
+}
+
+export function randomFromRaw(raw: string): Random {
+    switch (raw.toUpperCase()) {
+        case Random[Random.OFF]:
+            return Random.OFF;
+        case Random[Random.SHORT]:
+            return Random.SHORT;
+        case Random[Random.LONG]:
+            return Random.LONG;
+        case Random[Random.SHORT_LONG]:
+            return Random.SHORT_LONG;
+        default:
+            return Random.OFF;
+    }
+}
+
+export function reaOnResponseFailFromRaw(raw: string): ReaOnResponseFail {
+    switch (raw.toUpperCase()) {
+        case ReaOnResponseFail[ReaOnResponseFail.CONTINUE]:
+            return ReaOnResponseFail.CONTINUE;
+        case ReaOnResponseFail[ReaOnResponseFail.WAIT]:
+            return ReaOnResponseFail.WAIT;
+        default:
+            return ReaOnResponseFail.CONTINUE;
+    }
+}
+
 export function outputTypeFromRaw(outputTypeRaw: number): OutputType {
     const outputType: OutputType = {led: false, audio: false, image: false};
     // 0b0001

@@ -26,3 +26,16 @@ export enum ExperimentStopConditionType {
 	COUNTING_EXPERIMENT_STOP_CONDITION,
 	COUNTING_CYCLE_STOP_CONDITION
 }
+
+export function experimentStopCOnditionTypeFromRaw(raw: string): ExperimentStopConditionType {
+	switch (raw.toUpperCase()) {
+		case ExperimentStopConditionType[ExperimentStopConditionType.NO_STOP_CONDITION]:
+			return ExperimentStopConditionType.NO_STOP_CONDITION;
+		case ExperimentStopConditionType[ExperimentStopConditionType.COUNTING_EXPERIMENT_STOP_CONDITION]:
+			return ExperimentStopConditionType.COUNTING_EXPERIMENT_STOP_CONDITION;
+		case ExperimentStopConditionType[ExperimentStopConditionType.COUNTING_CYCLE_STOP_CONDITION]:
+			return ExperimentStopConditionType.COUNTING_CYCLE_STOP_CONDITION;
+		default:
+			return ExperimentStopConditionType.NO_STOP_CONDITION;
+	}
+}
