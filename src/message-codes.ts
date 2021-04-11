@@ -101,6 +101,7 @@ export class MessageCodes {
     public static readonly CODE_ERROR_STIMULATOR_NO_UPLOADED_EXPERIMENT = 70317;
     public static readonly CODE_ERROR_STIMULATOR_PLAYER_NOT_INITIALIZED = 70318;
     public static readonly CODE_ERROR_STIMULATOR_ACTION_NOT_POSSIBLE = 70319;
+    public static readonly CODE_ERROR_STIMULATOR_ALREADY_IN_REQUESTED_STATE = 70320;
 
     // Chybové zprávy pro 'ipc' začínájí na 80000
     public static readonly CODE_ERROR_IPC_ALREADY_OPEN = 80301;
